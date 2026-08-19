@@ -44,7 +44,16 @@ const MIME = {
 
 const server = http.createServer((req, res) => {
   try {
-    let urlPath = decodeURIComponent(req.url.split("?")[0]);
+    const rawUrl = req.url.split("?")[0];
+    let urlPath = decodeURIComponent(rawUrl);
+
+    // 健康检查（Railway / Render 用）
+    if (urlPath === "/health" || urlPath === "/healthz") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ ok: true, rooms: Object.keys(rooms).length, time: Date.now() }));
+      return;
+    }
+
     if (urlPath === "/") urlPath = "/index.html";
     const filePath = path.normalize(path.join(DIR, urlPath));
     if (!filePath.startsWith(DIR)) {

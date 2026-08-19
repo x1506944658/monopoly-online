@@ -368,6 +368,20 @@
       if (pendingConnect) {
         pendingConnect = false;
         UI.showToast("联机服务器连接失败：请先运行 node server.js 启动服务器");
+      } else if (mode === "online") {
+        UI.showToast("连接已断开，正在尝试重连...");
+      }
+    } else if (m.type === "net_reconnecting") {
+      if (mode === "online") {
+        UI.showToast("正在第 " + m.attempt + " 次重连...");
+      }
+    } else if (m.type === "net_reconnect") {
+      if (mode === "online") {
+        if (lobbyPlayers || roomCode) {
+          UI.showToast("已重连（如在对局中无法继续，请房主重新开始）");
+        } else {
+          UI.showToast("已重新连上服务器");
+        }
       }
     }
   }

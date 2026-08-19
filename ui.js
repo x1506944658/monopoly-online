@@ -452,6 +452,7 @@
       if (!window.__lobbyCreate) return;
       var cid = pick.getSelected();
       if (!cid) { showToast("请选择一个角色"); return; }
+      showToast("正在创建房间…");
       window.__lobbyCreate(parseInt(sel.value, 10), name.value.trim() || "房主", cid);
     }));
     wrap.appendChild(act);
@@ -480,6 +481,7 @@
       var cid = pick.getSelected();
       if (!code) { showToast("请输入房间号"); return; }
       if (!cid) { showToast("请选择一个角色"); return; }
+      showToast("正在加入房间…");
       window.__lobbyJoin(code, name.value.trim() || "玩家", cid);
     }));
     wrap.appendChild(act);
@@ -829,6 +831,7 @@
     renderAll: renderAll, showPhaseModal: showPhaseModal, showWin: showWin,
     renderSetup: renderSetup, showGame: showGame, showSetup: showSetup, showToast: showToast,
     collectSetup: collectSetup, closeModal: closeModal, animateMove: animateMove,
-    animateMoveFrom: animateMoveFrom, showChooseDice: showChooseDice, setNet: setNet, showLobby: showLobby
+    animateMoveFrom: animateMoveFrom, showChooseDice: showChooseDice, setNet: setNet, showLobby: showLobby,
+    showLobbyWaiting: showLobbyWaiting, updateLobbyWaiting: updateLobbyWaiting
   };
 })();
