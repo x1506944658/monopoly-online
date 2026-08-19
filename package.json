@@ -1,0 +1,16 @@
+{
+  "name": "monopoly-online",
+  "version": "1.0.0",
+  "private": true,
+  "description": "大富翁类网页游戏 · 联机中继服务器（房主权威模式）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.21.3"
+  }
+}

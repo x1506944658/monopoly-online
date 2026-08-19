@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大富翁类 · 童话王国版（参考大富翁4 制作方法）</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 设置 / 开始菜单 -->
+    <section id="setup-screen" class="screen"></section>
+
+    <!-- 主游戏界面 -->
+    <section id="game-screen" class="screen hidden">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo">🎲</span>
+          <div>
+            <h1>童话王国大富翁</h1>
+            <p class="sub">参考端游《大富翁4》制作方法 · 单人/多人 · 可存档</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="btn-roll" class="btn btn-primary">掷骰子</button>
+          <button id="btn-save" class="btn">存档</button>
+          <button id="btn-load" class="btn">读档</button>
+          <button id="btn-new" class="btn">新游戏</button>
+          <button id="btn-menu" class="btn">菜单</button>
+          <span id="round-info" class="round-info">第 1 回合</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="board-wrap">
+          <div id="board" class="board"></div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-block">
+            <h2>玩家</h2>
+            <div id="players"></div>
+          </div>
+          <div class="panel-block log-block">
+            <h2>日志</h2>
+            <div id="log" class="log"></div>
+          </div>
+        </aside>
+      </main>
+    </section>
+  </div>
+
+  <!-- 弹窗：买地 / 建造 / 抽卡选目标 / 胜负 -->
+  <div id="modal-root"></div>
+
+  <script src="config.js"></script>
+  <script src="cards.js"></script>
+  <script src="engine.js"></script>
+  <script src="ai.js"></script>
+  <script src="ui.js"></script>
+  <script src="audio.js"></script>
+  <script src="net.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
